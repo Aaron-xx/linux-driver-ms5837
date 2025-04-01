@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            status = "okay";
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            ms5837: ms5837@76 {
+                compatible = "meas,ms5837";
+                reg = <0x76>;
+                status = "okay";
+            };
+        };
+    };
+};
